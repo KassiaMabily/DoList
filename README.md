@@ -26,10 +26,10 @@ Para mudar essa situação, o primeiro passo é listar tudo que você precisa fa
 
 A satisfação em ver as tarefas avançando entre as etapas e a visualização da lista de tarefas concluídas serve de motivação para que a pessoa mantenha o esforço de se organizar, além disso, ela terá os resultados obtidos pela conclusão das suas tarefas.
 Sendo assim, a ferramenta "DoList" busca auxiliar o usuário no seu planejamento de atividades, utilizando o Sistema Kanban, onde são inseridas as atividades e sendo possível acompanha-las entre as etapas: "Planejadas", "Em andamento" e "Finalizadas".
-...
 
 ---
-## ✅ Features
+
+## ✅ Steps
 - [x] Descrição do projeto
     - [x] Detalhamento do problema e solução apresentada.
     - [x] Definição das classes e métodos que deverão ser desenvolvidos.
@@ -42,6 +42,12 @@ Sendo assim, a ferramenta "DoList" busca auxiliar o usuário no seu planejamento
 - [ ] Implementar a interação com o usuário via linha de comando
 - [ ] Testes manuais do sistema
 - [ ] Gravar vídeo do funcionamento do sistema
+
+<p align="center">
+    <img src="UML.png" height="250" width="400" alt="UML" />
+    <legend align="center">Diagrama UML</legend>
+</p>
+
 ---
 
 ## ⚙️ How it works
