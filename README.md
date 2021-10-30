@@ -20,12 +20,26 @@
 </h4>
 
 ## 💻 Overview
-
+Em um mundo tão dinâmico e competitivo, a organização pessoal é algo essencial para a busca de melhores resultados, sejam eles na vida profissional ou pessoal. Muitas pessoas sentem que o dia precisava ter mais do que 24 horas, para ser possível realizar tudo que gostariam. Entretanto, em muitos casos o problema não é a falta de tempo para fazer o que deveria ser feito, e sim a falta da gestão do tempo.
+Para mudar essa situação, o primeiro passo é listar tudo que você precisa fazer e depois indicar as prioridades e os prazos, de forma que seja possível definir visualmente por onde começar. Sabendo tudo que precisa ser feito, fica mais fácil se planejar e executar as tarefas. 
+A satisfação em ver as tarefas avançando entre as etapas e a visualização da lista de tarefas concluídas serve de motivação para que a pessoa mantenha o esforço de se organizar, além disso, ela terá os resultados obtidos pela conclusão das suas tarefas.
+Sendo assim, a ferramenta "DoList" busca auxiliar o usuário no seu planejamento de atividades, utilizando o Sistema Kanban, onde são inseridas as atividades e sendo possível acompanha-las entre as etapas: "Planejadas", "Em andamento" e "Finalizadas".
 ...
 
 ---
 ## ✅ Features
-
+- [x] Descrição do projeto
+    - [x] Detalhamento do problema e solução apresentada.
+    - [x] Definição das classes e métodos que deverão ser desenvolvidos.
+- [ ] Desenvolver Classe "TAREFA"
+    - [ ] Criar atributos, conforme modelo UML.
+    - [ ] Criar métodos, conforme modelo UML.
+- [ ] Desenvolver Classe "USUÁRIO"
+    - [ ] Criar atributos, conforme modelo UML.
+    - [ ] Criar métodos, conforme modelo UML.
+- [ ] Implementar a interação com o usuário via linha de comando
+- [ ] Testes manuais do sistema
+- [ ] Gravar vídeo do funcionamento do sistema
 ---
 
 ## ⚙️ How it works
