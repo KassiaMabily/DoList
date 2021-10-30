@@ -102,4 +102,4 @@ Sendo assim, a ferramenta "DoList" busca auxiliar o usuário no seu planejamento
 
 ## 📝 Licença
 
-Este projeto esta sobe a licença [MIT](./LICENSE).
+Este projeto esta sob a licença [MIT](./LICENSE).
