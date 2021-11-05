@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Documentos\\UCL\\Repositórios\\DoList\\DoList\\DoList.csproj": {}
+    "D:\\Documentos\\UCL\\Repositórios\\DoList\\src\\DoList.csproj": {}
   },
   "projects": {
-    "D:\\Documentos\\UCL\\Repositórios\\DoList\\DoList\\DoList.csproj": {
+    "D:\\Documentos\\UCL\\Repositórios\\DoList\\src\\DoList.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Documentos\\UCL\\Repositórios\\DoList\\DoList\\DoList.csproj",
+        "projectUniqueName": "D:\\Documentos\\UCL\\Repositórios\\DoList\\src\\DoList.csproj",
         "projectName": "DoList",
-        "projectPath": "D:\\Documentos\\UCL\\Repositórios\\DoList\\DoList\\DoList.csproj",
+        "projectPath": "D:\\Documentos\\UCL\\Repositórios\\DoList\\src\\DoList.csproj",
         "packagesPath": "C:\\Users\\Kassia M Fraga\\.nuget\\packages\\",
-        "outputPath": "D:\\Documentos\\UCL\\Repositórios\\DoList\\DoList\\obj\\",
+        "outputPath": "D:\\Documentos\\UCL\\Repositórios\\DoList\\src\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Kassia M Fraga\\AppData\\Roaming\\NuGet\\NuGet.Config",
