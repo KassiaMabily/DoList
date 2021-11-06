@@ -34,11 +34,11 @@ Sendo assim, a ferramenta "DoList" busca auxiliar o usuário no seu planejamento
     - [x] Detalhamento do problema e solução apresentada.
     - [x] Definição das classes e métodos que deverão ser desenvolvidos.
 - [ ] Desenvolver Classe "TAREFA"
-    - [ ] Criar atributos, conforme modelo UML.
+    - [X] Criar atributos, conforme modelo UML.
     - [ ] Criar métodos, conforme modelo UML.
-- [ ] Desenvolver Classe "USUÁRIO"
-    - [ ] Criar atributos, conforme modelo UML.
-    - [ ] Criar métodos, conforme modelo UML.
+- [X] Desenvolver Classe "USUÁRIO"
+    - [X] Criar atributos, conforme modelo UML.
+    - [X] Criar métodos, conforme modelo UML.
 - [ ] Implementar a interação com o usuário via linha de comando
 - [ ] Testes manuais do sistema
 - [ ] Gravar vídeo do funcionamento do sistema
