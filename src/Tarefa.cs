@@ -74,18 +74,36 @@ class Tarefa {
   }
 
   public Boolean estaDentroPrazo() {
-    return true;
-  }
+    int comparacao = DateTime.Compare(prazo, DateTime.Now);
+  
+    if (comparacao >= 0){
+      return true;
+    }
+      return false;
+    }
 
   public void moverTarefa(string novaEtapa){}
+    //Não consegui fazer esse método. Deixei abaixo comentado a minha última tentativa, mas nao sei se o 'indexof' pode ser usado...
+    //string[] etapas = {"planejada", "em andamento", "finalizada"};
+
+    //var search = novaEtapa;
+    //if (etapas.IndexOf(search) >= 0){
+      //etapa = novaEtapa;
+      //atualizadoEm = DateTime.Now;
+    //}
+      //Console.WriteLine("Etapa Inválida. Utilize: 'planejada', 'em andamento' ou 'finalizada'");      
+    //}
+  //}
 
   public string formatCard ()
   {
     return String.Format("#({0}) {1}", identificador, titulo);
   }
-  public void printTarefa ()
-  {
-    Console.WriteLine (identificador);
+  public string printTarefa (){
+    string printTaref = string.Format("Id:{0} - Título:{1} / Descricao:{2} / Prioridade {3} / Prazo {4} / Etapa {5} / Criado em {6} / Última Atualização {7}",
+    identificador, titulo, descricao, prioridade, prazo, etapa, criadoEm, atualizadoEm);
+    
+    return printTaref;
   }
   
 }
