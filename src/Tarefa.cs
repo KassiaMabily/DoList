@@ -1,6 +1,13 @@
 ﻿using System;
+using System.Linq;
 // prioridade: baixa, média e urgente.
 // etapa: planejadas, em andamento e finalizadas.
+public static class Constants
+{
+  // DÚVIDA-ver com Prof: const não poderia ser usado nesse caso [no lugar de readonly]? 
+  public readonly static string[] ETAPAS = { "Planejadas", "Em andamento", "Finalizadas"};
+  public readonly static string[] PRIORIDADES = {"Baixa", "Média", "Urgente"};
+}
 class Tarefa {
   // private int identificador;
   private int identificador;
@@ -38,7 +45,7 @@ class Tarefa {
     prioridade = pr;
     etapa = "Planejada";
   }
-//vanessa - fazer todos getset [para todos atributos privados] - visual studio tem padrao para getset 'automatico'. Terminar a instalacao do visual studio
+//vanessa - fazer todos getset [para todos atributos privados] 
   
   // Essa operação não deve existir, apenas para fins de teste antes de gerar um id aleatório
   public void setIdentificador(int i){
@@ -82,25 +89,26 @@ class Tarefa {
       return false;
     }
 
-  public void moverTarefa(string novaEtapa){}
-    //Não consegui fazer esse método. Deixei abaixo comentado a minha última tentativa, mas nao sei se o 'indexof' pode ser usado...
-    //string[] etapas = {"planejada", "em andamento", "finalizada"};
-
-    //var search = novaEtapa;
-    //if (etapas.IndexOf(search) >= 0){
-      //etapa = novaEtapa;
-      //atualizadoEm = DateTime.Now;
-    //}
-      //Console.WriteLine("Etapa Inválida. Utilize: 'planejada', 'em andamento' ou 'finalizada'");      
-    //}
-  //}
-
+  public Boolean moverTarefa(string novaEtapa)
+  {
+    if (Constants.ETAPAS.Contains(novaEtapa))
+    {
+      etapa = novaEtapa;
+      atualizadoEm = DateTime.Now;
+      return true;
+    }
+    else
+    {
+      Console.WriteLine("Etapa Inválida. Utilize: 'Planejada', 'Em Andamento' ou 'Finalizada'");
+      return false;
+    }
+  }
   public string formatCard ()
   {
     return String.Format("#({0}) {1}", identificador, titulo);
   }
   public string printTarefa (){
-    string printTaref = string.Format("Id:{0} - Título:{1} / Descricao:{2} / Prioridade {3} / Prazo {4} / Etapa {5} / Criado em {6} / Última Atualização {7}",
+    string printTaref = string.Format("#({0}) {1} \n Descricao:{2} \n Prioridade {3} \n Prazo {4} \n Etapa {5} \n Criado em {6} \n Última Atualização {7}",
     identificador, titulo, descricao, prioridade, prazo, etapa, criadoEm, atualizadoEm);
     
     return printTaref;
