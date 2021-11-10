@@ -3,7 +3,7 @@
 </p>
 
 <h3 align="center">
-    Gerenciador de tarefas
+    DoList
 </h3>
 
 <p align="center">
