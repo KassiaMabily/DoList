@@ -6,7 +6,7 @@ public static class Constants
 {
   // DÚVIDA-ver com Prof: const não poderia ser usado nesse caso [no lugar de readonly]? 
   public readonly static string[] ETAPAS = { "Planejadas", "Em andamento", "Finalizadas"};
-  public readonly static string[] PRIORIDADES = {"Baixa", "Média", "Urgente"};
+  public readonly static string[] PRIORIDADES = {"Baixa", "Media", "Urgente"};
 }
 class Tarefa {
   // private int identificador;
@@ -30,20 +30,20 @@ class Tarefa {
     titulo = "";
     descricao = "";
     prioridade = "Média";
-    etapa = "Planejada";
+    etapa = Constants.ETAPAS[0];
   }
   
-  public Tarefa(DateTime dataPrazo, string ptitulo, string desc, string pr)
+  public Tarefa(int dias, string ptitulo, string desc, string pr)
   {
     //criar um metodo de numeros aleatorios para substituir  0.
     identificador = 0;
     criadoEm = DateTime.Now;
     atualizadoEm = DateTime.Now;
-    prazo = dataPrazo;
+    prazo = DateTime.Now.AddDays(dias);
     titulo = ptitulo;
     descricao = desc;
     prioridade = pr;
-    etapa = "Planejada";
+    etapa = Constants.ETAPAS[0];
   }
 //vanessa - fazer todos getset [para todos atributos privados] 
   
@@ -107,11 +107,11 @@ class Tarefa {
   {
     return String.Format("#({0}) {1}", identificador, titulo);
   }
-  public string printTarefa (){
+  public void printTarefa (){
     string printTaref = string.Format("#({0}) {1} \n Descricao:{2} \n Prioridade {3} \n Prazo {4} \n Etapa {5} \n Criado em {6} \n Última Atualização {7}",
     identificador, titulo, descricao, prioridade, prazo, etapa, criadoEm, atualizadoEm);
     
-    return printTaref;
+    Console.WriteLine(printTaref);
   }
   
 }

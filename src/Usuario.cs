@@ -33,9 +33,28 @@ class Usuario {
     /// Arquiva uma tarefa da lista de tarefas para ser ignorada no print do quadro kanban
     /// </summary>
     /// <param name="identificadorTarefa">ID único da tarefa</param>
-    public void arquivarTarefa(int identificadorTarefa) {
+    public Tarefa getTarefa(int identificadorTarefa) {
         Tarefa tarefa = listaTarefas.Find(t => t.getIdentificador() == identificadorTarefa);
+
+        return tarefa;
+    }
+
+    /// <summary>
+    /// Arquiva uma tarefa da lista de tarefas para ser ignorada no print do quadro kanban
+    /// </summary>
+    /// <param name="identificadorTarefa">ID único da tarefa</param>
+    public void arquivarTarefa(int identificadorTarefa) {
+        Tarefa tarefa = getTarefa(identificadorTarefa);
         tarefa.arquivarTarefa(true);
+    }
+
+    /// <summary>
+    /// Arquiva uma tarefa da lista de tarefas para ser ignorada no print do quadro kanban
+    /// </summary>
+    /// <param name="identificadorTarefa">ID único da tarefa</param>
+    public void moverTarefa(int identificadorTarefa, string novaEtapa) {
+        Tarefa tarefa = getTarefa(identificadorTarefa);
+        tarefa.moverTarefa(novaEtapa);
     }
 
     /// <summary>
@@ -43,7 +62,7 @@ class Usuario {
     /// </summary>
     /// <returns> Lista de Tarefas que estão na etapa "Planejada"</returns>
     public List<Tarefa> getTarefasPlanejadas() {
-        return listaTarefas.FindAll(tarefa => tarefa.getEtapa() == "Planejada");
+        return listaTarefas.FindAll(tarefa => tarefa.getEtapa() == Constants.ETAPAS[0]);
     }
 
     /// <summary>
@@ -51,7 +70,7 @@ class Usuario {
     /// </summary>
     /// <returns> Lista de Tarefas que estão na etapa "Em andamento"</returns>
     public List<Tarefa> getTarefasEmAndamento() {
-        return listaTarefas.FindAll(tarefa => tarefa.getEtapa() == "Em andamento");
+        return listaTarefas.FindAll(tarefa => tarefa.getEtapa() == Constants.ETAPAS[1]);
     }
 
     /// <summary>
@@ -59,7 +78,7 @@ class Usuario {
     /// </summary>
     /// <returns> Lista de Tarefas que estão na etapa "Finalizadas"</returns>
     public List<Tarefa> getTarefasFinalizadas() {
-        return listaTarefas.FindAll(tarefa => tarefa.getEtapa() == "Finalizada");
+        return listaTarefas.FindAll(tarefa => tarefa.getEtapa() == Constants.ETAPAS[2]);
     }
 
     /// <summary>
@@ -83,9 +102,10 @@ class Usuario {
     /// </summary>
     /// <param name="lista">Lista de tarefas a ser exibida</param>
     public void printListaTarefas(List<Tarefa> lista) {
+
         foreach (var item in lista.OrderBy(tarefa => tarefa.getPrazo()).ToList() )
         {
-            Console.WriteLine(item);
+            Console.WriteLine(item.formatCard());
         }
     }
 
@@ -123,7 +143,7 @@ class Usuario {
         List<Tarefa>[] tarefas = new List<Tarefa>[] { tarefasPlanejadas, tarefasEmAndamento, tarefasFinalizadas };
 
         // Printa o cabeçalho do quadro
-        Console.WriteLine("{0,-20} {1,-20} {2, -20}\n", "Planejadas", "Em andamento", "Finalizadas");
+        Console.WriteLine("{0, -20} {1, -20} {2, -20}\n", "Planejadas", "Em andamento", "Finalizadas");
         
         // Percorre a matriz
         for(int linha = 0; linha < qtdLinhas ; linha++)
@@ -134,7 +154,6 @@ class Usuario {
             for(int coluna = 0; coluna < 2; coluna++)
             {
                 // Verifica se a linha existe na coluna atual da matriz
-                
                 if(linha < tarefas[coluna].Count())
                 {   
                     // Verifica se a tarefa não está arquivada
