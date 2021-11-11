@@ -39,7 +39,7 @@ Sendo assim, a ferramenta "DoList" busca auxiliar o usuário no seu planejamento
 - [X] Desenvolver Classe "USUÁRIO"
     - [X] Criar atributos, conforme modelo UML.
     - [X] Criar métodos, conforme modelo UML.
-- [ ] Gerar ID aleatório de 2 dígitos automaticamente ao criar tarefa
+- [X] Gerar ID sequencial automaticamente ao criar tarefa
 - [X] Implementar a interação com o usuário via linha de comando
 - [ ] Implementar a persistência de dados
 - [ ] Testes manuais do sistema

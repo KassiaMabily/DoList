@@ -26,7 +26,9 @@ class Usuario {
     /// </summary>
     /// <param name="novaTarefa">Nova tarefa</param>
     public void adicionarTarefa(Tarefa novaTarefa) {
+        novaTarefa.setIdentificador(listaTarefas.Count()+1);
         listaTarefas.Add(novaTarefa);
+        
     }
 
     /// <summary>
