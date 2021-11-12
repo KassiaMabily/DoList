@@ -46,6 +46,20 @@ class Tarefa {
     prioridade = pr;
     etapa = Constants.ETAPAS[0];
   }
+
+
+  public Tarefa(int id, string t, string desc, string pr, DateTime p, string e, DateTime c, DateTime a, Boolean arq)
+  {
+    identificador = id;
+    titulo = t;
+    descricao = desc;
+    prioridade = pr;
+    prazo = p;
+    etapa = e;
+    criadoEm = c;
+    atualizadoEm = a;
+    estaArquivada = arq;
+  }
 //vanessa - fazer todos getset [para todos atributos privados] 
   
   // Essa operação não deve existir, apenas para fins de teste antes de gerar um id aleatório

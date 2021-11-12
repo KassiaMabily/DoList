@@ -3,6 +3,7 @@ using System.IO;
 using System.Text;
 using System.Collections.Generic;
 using System.Linq;
+
 class Usuario {
     private string nome;
     private List<Tarefa> listaTarefas = new List<Tarefa>();
@@ -12,6 +13,38 @@ class Usuario {
     /// </summary>
     public Usuario(string n) {
         nome = n;
+        this.carregarTarefas();
+    }
+
+    public void carregarTarefas(){
+        FileStream meuArq = new FileStream("./data.csv", FileMode.OpenOrCreate, FileAccess.Read);
+        StreamReader sr = new StreamReader(meuArq, Encoding.UTF8);
+        
+        while(!sr.EndOfStream){
+            string[] str = sr.ReadLine().Split(";");
+
+            if(str.Length == 9) 
+            {
+                Tarefa novaTarefa = new Tarefa(
+                    int.Parse(str[0]),
+                    str[1],
+                    str[2],
+                    str[3],
+                    DateTime.Parse(str[4]),
+                    str[5],
+                    DateTime.Parse(str[6]),
+                    DateTime.Parse(str[7]),
+                    Boolean.Parse(str[8])
+                );
+
+                listaTarefas.Add(novaTarefa);
+            }
+
+            
+        }
+
+        sr.Close();
+        meuArq.Close();
     }
 
     public void salvarTarefas(){

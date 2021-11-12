@@ -8,7 +8,6 @@ namespace DoList
         
         static void Main(string[] args)
         {   
-            string nomeUsuario;
 
             string caminhoArquivo = "./data.csv";
             Boolean arquivoExiste = File.Exists(caminhoArquivo);
@@ -22,32 +21,39 @@ namespace DoList
                 {
                     Usuario usuario = new Usuario("Fulaninho");
                     Menu(usuario);
+                } else {
+                    File.Delete(caminhoArquivo);
+                    iniciar();
                 }
 
             }
             else {
-                Console.WriteLine("Olá, seja bem-vindx!");
-                Console.WriteLine("Como devo te chamar? ");
-                nomeUsuario = Console.ReadLine();
-
-                Usuario usuario = new Usuario(nomeUsuario);
-
-                Console.WriteLine(string.Format(
-                    @"Você ainda não possui tarefas, deseja adicionar agora?
-                    1 - Sim
-                    2 - Não"
-                ));
-
-                string resposta = Console.ReadLine();
-
-                if(resposta == "1") {
-                    criarTarefa(usuario);
-
-                    Menu(usuario);
-                }
+                iniciar();
             }
 
             
+        }
+
+        static void iniciar() {
+            Console.WriteLine("Olá, seja bem-vindx!");
+            Console.WriteLine("Como devo te chamar? ");
+            string nomeUsuario = Console.ReadLine();
+
+            Usuario usuario = new Usuario(nomeUsuario);
+
+            Console.WriteLine(string.Format(
+                @"Você ainda não possui tarefas, deseja adicionar agora?
+                1 - Sim
+                2 - Não"
+            ));
+
+            string resposta = Console.ReadLine();
+
+            if(resposta == "1") {
+                criarTarefa(usuario);
+
+                Menu(usuario);
+            }
         }
 
         static void criarTarefa(Usuario usuario) {
