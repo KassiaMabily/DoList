@@ -1,7 +1,8 @@
 using System;
+using System.IO;
+using System.Text;
 using System.Collections.Generic;
 using System.Linq;
-
 class Usuario {
     private string nome;
     private List<Tarefa> listaTarefas = new List<Tarefa>();
@@ -12,6 +13,19 @@ class Usuario {
     public Usuario(string n) {
         nome = n;
     }
+
+    public void salvarTarefas(){
+        FileStream meuArq = new FileStream("./data.csv", FileMode.OpenOrCreate, FileAccess.Write);
+        StreamWriter sw = new StreamWriter(meuArq, Encoding.UTF8);
+        
+        for(int i = 0; i < listaTarefas.Count(); i++) {
+            sw.WriteLine(listaTarefas[i].formatLineCSV());
+        }
+
+        sw.Close();
+        meuArq.Close();
+    }
+
 
     public string getNome(){
         return nome;

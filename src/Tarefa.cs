@@ -20,6 +20,7 @@ class Tarefa {
   private DateTime atualizadoEm;
   private Boolean estaArquivada;
 
+  
   public Tarefa()
   {
     //criar um metodo de numeros aleatorios para substituir  0.
@@ -107,6 +108,14 @@ class Tarefa {
   {
     return String.Format("#({0}) {1}", identificador, titulo);
   }
+
+  public string formatLineCSV ()
+  {
+    return String.Format("{0};{1};{2};{3};{4};{5};{6};{7};{8}", identificador, titulo, descricao, prioridade, prazo, etapa, criadoEm, atualizadoEm, estaArquivada);
+  }
+
+
+  
   public void printTarefa (){
     string printTaref = string.Format("#({0}) {1} \n Descricao:{2} \n Prioridade {3} \n Prazo {4} \n Etapa {5} \n Criado em {6} \n Última Atualização {7}",
     identificador, titulo, descricao, prioridade, prazo, etapa, criadoEm, atualizadoEm);

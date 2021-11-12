@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
+using System.Collections.Generic;
 namespace DoList
 {
     class Program
@@ -154,11 +154,7 @@ namespace DoList
                         visualizarTarefa(usuario);
                         break;
                     default:
-                        string caminhoArquivo = "./data.csv";
-                        Stream arquivo = File.Open(caminhoArquivo, FileMode.OpenOrCreate);
-                        StreamReader leitor = new StreamReader(arquivo);
-
-                        usuario.printQuadro();
+                        usuario.salvarTarefas();
 
                         break;
                 }
