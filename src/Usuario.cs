@@ -108,42 +108,29 @@ class Usuario {
 
     /// <summary>
     /// Filtra a lista de tarefas por etapa
-    /// </summary>
-    /// <returns> Lista de Tarefas que estão na etapa "Planejada"</returns>
-    public List<Tarefa> getTarefasPlanejadas() {
-        return listaTarefas.FindAll(tarefa => tarefa.getEtapa() == Constants.ETAPAS[0]);
+    /// </summary>3
+    /// <param name="etapa">Planejadas, Em andamento ou Finalizadas</param>
+    /// <param name="mostrarDeletadas">Mostrar ou não tarefas deletadas. Por default será false</param>
+    /// <returns> Lista de Tarefas</returns>
+    public List<Tarefa> getTarefasPorEtapa(string etapa, bool mostrarDeletadas = false) {
+        return listaTarefas.FindAll(tarefa => tarefa.getEtapa() == etapa && tarefa.getEstaArquivada() == mostrarDeletadas);
     }
+    
 
     /// <summary>
-    /// Filtra a lista de tarefas por etapa
-    /// </summary>
-    /// <returns> Lista de Tarefas que estão na etapa "Em andamento"</returns>
-    public List<Tarefa> getTarefasEmAndamento() {
-        return listaTarefas.FindAll(tarefa => tarefa.getEtapa() == Constants.ETAPAS[1]);
-    }
-
-    /// <summary>
-    /// Filtra a lista de tarefas por etapa
-    /// </summary>
-    /// <returns> Lista de Tarefas que estão na etapa "Finalizadas"</returns>
-    public List<Tarefa> getTarefasFinalizadas() {
-        return listaTarefas.FindAll(tarefa => tarefa.getEtapa() == Constants.ETAPAS[2]);
-    }
-
-    /// <summary>
-    /// Filtra a lista de tarefas por prazo de entrega
+    /// Filtra a lista de tarefas por prazo de entrega que não estão finalizadas e nem arquivadas
     /// </summary>
     /// <returns> Lista de Tarefas que estão fora do prazo de entrega</returns>
     public List<Tarefa> getTarefasAtradas() {
-        return listaTarefas.FindAll(tarefa => !tarefa.estaDentroPrazo());
+        return listaTarefas.FindAll(tarefa => !tarefa.estaDentroPrazo() && tarefa.getEtapa() != Constants.ETAPAS[2] && !tarefa.getEstaArquivada());
     }
 
     /// <summary>
-    /// Filtra a lista de tarefas por prioridade
+    /// Filtra a lista de tarefas por prioridade que não estão finalizadas e nem arquivadas
     /// </summary>
     /// <returns> Lista de Tarefas que possuem prioridade urgente</returns>
     public List<Tarefa> getTarefasUrgentes() {
-        return listaTarefas.FindAll(tarefa => tarefa.getPrioridade() == "Urgente");
+        return listaTarefas.FindAll(tarefa => (tarefa.getPrioridade() == "Urgente" && tarefa.getEtapa() != Constants.ETAPAS[2] && !tarefa.getEstaArquivada()));
     }
 
     /// <summary>
@@ -180,9 +167,9 @@ class Usuario {
     /// </summary>
     public void printQuadro() {
         // Cria listas de tarefas de acordo com as etapas
-        List<Tarefa> tarefasPlanejadas = getTarefasPlanejadas();
-        List<Tarefa> tarefasEmAndamento = getTarefasEmAndamento();
-        List<Tarefa> tarefasFinalizadas = getTarefasFinalizadas();
+        List<Tarefa> tarefasPlanejadas = getTarefasPorEtapa(Constants.ETAPAS[0]);
+        List<Tarefa> tarefasEmAndamento = getTarefasPorEtapa(Constants.ETAPAS[1]);
+        List<Tarefa> tarefasFinalizadas = getTarefasPorEtapa(Constants.ETAPAS[2]);
 
         // Pega o tamanho da maior lista
         int[] tamanhos = { tarefasPlanejadas.Count(), tarefasEmAndamento.Count(), tarefasFinalizadas.Count() };
@@ -206,12 +193,9 @@ class Usuario {
                 // Verifica se a linha existe na coluna atual da matriz
                 if(linha < tarefas[coluna].Count())
                 {   
-                    // Verifica se a tarefa não está arquivada
-                    if(!tarefas[coluna][linha].getEstaArquivada())
-                    {
-                        // Atribui a tarefa a linha que será printada posteriormente
-                        valores[coluna] = tarefas[coluna][linha];
-                    }
+
+                    // Atribui a tarefa a linha que será printada posteriormente
+                    valores[coluna] = tarefas[coluna][linha];
                 }
             
             }

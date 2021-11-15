@@ -42,7 +42,7 @@ Sendo assim, a ferramenta "DoList" busca auxiliar o usuário no seu planejamento
 - [X] Gerar ID sequencial automaticamente ao criar tarefa
 - [X] Implementar a interação com o usuário via linha de comando
 - [X] Implementar a persistência de dados
-- [ ] Testes manuais do sistema
+- [X] Testes manuais do sistema
     - [X] Criação de tarefa
     - [X] Mover tarefa
     - [X] Arquivar tarefa
@@ -51,7 +51,7 @@ Sendo assim, a ferramenta "DoList" busca auxiliar o usuário no seu planejamento
     - [X] Visualizar tarefas atrasadas
     - [X] Encerrar o programa
     - [X] Persistência de dados
-- [ ] Gravar vídeo do funcionamento do sistema
+- [X] Gravar vídeo do funcionamento do sistema
 
 <p align="center">
     <img src="UML.png" height="250" width="400" alt="UML" />
