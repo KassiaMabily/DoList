@@ -63,6 +63,7 @@ Sendo assim, a ferramenta "DoList" busca auxiliar o usuário no seu planejamento
 ## ⚙️ How it works
 
 ...
+**[Vídeo com Exemplo de Funcionamento do Sistema DoList](https://youtu.be/xqCE7g0BUuQ)**
 
 ## 🚀 Tech Stack
 
