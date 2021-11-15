@@ -185,8 +185,9 @@ class Usuario {
         List<Tarefa> tarefasFinalizadas = getTarefasFinalizadas();
 
         // Pega o tamanho da maior lista
-        int[] tamanhos = { tarefasPlanejadas.Count(), tarefasEmAndamento.Count(), tarefasPlanejadas.Count() };
+        int[] tamanhos = { tarefasPlanejadas.Count(), tarefasEmAndamento.Count(), tarefasFinalizadas.Count() };
         int qtdLinhas = getNumeroMaior(tamanhos); 
+        
 
         // Cria uma matriz de tarefas onde as colunas da matriz são as etapas
         List<Tarefa>[] tarefas = new List<Tarefa>[] { tarefasPlanejadas, tarefasEmAndamento, tarefasFinalizadas };
@@ -200,7 +201,7 @@ class Usuario {
             // Cria uma linha com 3 colunas de valores
             Tarefa[] valores = new Tarefa[] { null, null, null };
 
-            for(int coluna = 0; coluna < 2; coluna++)
+            for(int coluna = 0; coluna < 3; coluna++)
             {
                 // Verifica se a linha existe na coluna atual da matriz
                 if(linha < tarefas[coluna].Count())
