@@ -214,14 +214,18 @@ class Usuario {
                 }
             
             }
-
-            // Exibe a linha
-            Console.WriteLine(
-                "{0,-20} {1,-20} {2, -20}\n", 
-                valores[0] != null ? valores[0].formatCard() : "", 
-                valores[1] != null ? valores[1].formatCard() : "", 
-                valores[2] != null ? valores[2].formatCard() : ""
-            );
+            
+            bool isEmpty =  valores.All(x => x == null);
+            if(!isEmpty)
+            {
+                // Exibe a linha
+                Console.WriteLine(
+                    "{0,-20} {1,-20} {2, -20}\n", 
+                    valores[0] != null ? valores[0].formatCard() : "", 
+                    valores[1] != null ? valores[1].formatCard() : "", 
+                    valores[2] != null ? valores[2].formatCard() : ""
+                );
+            }
         }
     }
 }

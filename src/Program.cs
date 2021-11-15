@@ -16,6 +16,7 @@ namespace DoList
             {
                 Console.WriteLine("Seja bem-vindo novamente!");
                 Console.WriteLine("Você deseja continuar o progresso?\n1 - Sim\n2 - Não, desejo apagar meu progresso");
+                Console.Write("DIGITE A SUA ESCOLHA: ");
                 string resposta = Console.ReadLine();
                 if(resposta == "1")
                 {
@@ -42,11 +43,11 @@ namespace DoList
             Usuario usuario = new Usuario(nomeUsuario);
 
             Console.WriteLine(string.Format(
-                @"Você ainda não possui tarefas, deseja adicionar agora?
-                1 - Sim
-                2 - Não"
+                "\nVocê ainda não possui tarefas, deseja adicionar agora?\n"+
+                "1 - Sim\n"+
+                "2 - Não"
             ));
-
+            Console.Write("DIGITE A SUA ESCOLHA: ");
             string resposta = Console.ReadLine();
 
             if(resposta == "1") {
@@ -57,6 +58,7 @@ namespace DoList
         }
 
         static void criarTarefa(Usuario usuario) {
+            Console.WriteLine("\nADICIONAR TAREFA");
             Console.Write("Titulo: ");
             string titulo = Console.ReadLine();
 
@@ -80,6 +82,7 @@ namespace DoList
         }
 
         static void arquivarTarefa(Usuario usuario) {
+            Console.WriteLine("\nSEU QUADRO:");
             usuario.printQuadro();
 
             Console.WriteLine("DICA: O identificador fica entre parenteses");
@@ -90,6 +93,7 @@ namespace DoList
         }
 
         static void moverTarefa(Usuario usuario) {
+            Console.WriteLine("\nSEU QUADRO:");
             usuario.printQuadro();
 
             Console.WriteLine("DICA: O identificador fica entre parenteses");
@@ -106,6 +110,7 @@ namespace DoList
         }
 
         static void visualizarTarefa(Usuario usuario) {
+            Console.WriteLine("\nSEU QUADRO:");
             usuario.printQuadro();
 
             Console.WriteLine("DICA: O identificador fica entre parenteses");
@@ -122,21 +127,22 @@ namespace DoList
             while(true)
             {
                 Console.WriteLine(string.Format(
-                    @"Como posso te ajudar?
-                    1 - Desejo ver meu quadro
-                    2 - Adicionar tarefa
-                    3 - Deletar tarefa
-                    4 - Mover tarefa
-                    5 - Visualizar tarefas urgentes
-                    6 - Visualizar tarefas atrasadas
-                    7 - Visualizar tarefa
-                    0 - Sair"
+                    "\nComo posso te ajudar?\n" +
+                    "1 - Desejo ver meu quadro\n"+
+                    "2 - Adicionar tarefa\n"+
+                    "3 - Deletar tarefa\n"+
+                    "4 - Mover tarefa\n"+
+                    "5 - Visualizar tarefas urgentes\n"+
+                    "6 - Visualizar tarefas atrasadas\n"+
+                    "7 - Visualizar tarefa\n"+
+                    "0 - Sair"
                 ));
-
+                Console.Write("DIGITE A SUA ESCOLHA: ");
                 resposta = Console.ReadLine();
                 switch (resposta)
                 {
                     case "1":
+                        Console.WriteLine("\nSEU QUADRO:");
                         usuario.printQuadro();
                         break;
                     case "2":
